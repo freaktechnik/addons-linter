@@ -174,3 +174,19 @@ export const CSP_KEYWORD_RE = new RegExp([
 export const BADWORDS_RE = {
   en: new RegExp(`\\b(?:${badwords.en.join('|')})\\b`, 'gi'),
 };
+
+export const MESSAGES_JSON = 'messages.json';
+
+// All predefined i18n messages. They can be used by prefixing them with two @
+// whenever you can refer to an i18n message.
+export const PREDEFINED_MESSAGES = [
+  'extension_id',
+  'ui_locale',
+  'bidi_dir',
+  'bidi_reversed_dir',
+  'bidi_start_edge',
+  'bidi_end_edge',
+];
+
+// This is a string, since it has to be matched globally on a message string.
+export const MESSAGE_PLACEHOLDER_REGEXP = '\\$([a-z0-9_@]+)\\$';

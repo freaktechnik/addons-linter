@@ -21,6 +21,7 @@ import HTMLScanner from 'scanners/html';
 import JavaScriptScanner from 'scanners/javascript';
 import JSONScanner from 'scanners/json';
 import LangpackScanner from 'scanners/langpack';
+import MessagesJSONScanner from 'scanners/messagesjson';
 import { Crx, Directory, Xpi } from 'io';
 
 
@@ -303,6 +304,10 @@ export default class Linter {
       case '.js':
         return JavaScriptScanner;
       case '.json':
+        if (filename.startsWith('_locales') &&
+            filename.endsWith(constants.MESSAGES_JSON)) {
+          return MessagesJSONScanner;
+        }
         return JSONScanner;
       case '.properties':
       case '.ftl':

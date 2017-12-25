@@ -1,6 +1,7 @@
 import ajv from 'ajv';
 
 import schemaObject from 'schema/imported/manifest';
+import messagesSchemaObject from 'schema/messages';
 
 import {
   imageDataOrStrictRelativeUrl,
@@ -47,4 +48,10 @@ export const validateLangPack = validator.compile({
   ...schemaObject,
   id: 'langpack-manifest',
   $ref: '#/types/WebExtensionLangpackManifest',
+});
+
+export const validateMessages = validator.compile({
+  ...messagesSchemaObject,
+  id: 'messages',
+  $ref: '#/types/WebExtensionMessages',
 });
